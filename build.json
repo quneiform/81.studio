@@ -1,0 +1,27 @@
+{
+  "format": "qn.build/1",
+  "qrate": {
+    "name": "81.studio.landing",
+    "version": "0.3.0",
+    "manifest_sha256": "1bb198df20c9c34ed98cf9ab5e5494e87f729c80b8655131248e4e070a09500d"
+  },
+  "host": "81.studio",
+  "interface": "static-site/1",
+  "builder": {
+    "name": "qn.build.static",
+    "version": "0.1.0"
+  },
+  "inputs": {
+    ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "CNAME": "6b64190ed11fcf38c89096e298a4019e6cec296c916016674eff0fc9ce749d29",
+    "index.html": "50ed9d4a20e8b6f34b48672929b2f04782f0c414d14c1eac5f3c3aa16dc76ae0",
+    "theme.js": "120c5fb505eee52532bf9a12dd29ee4cbe49338349a3e0df62dbc77ff4247e67"
+  },
+  "files": {
+    ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "CNAME": "6b64190ed11fcf38c89096e298a4019e6cec296c916016674eff0fc9ce749d29",
+    "index.html": "50ed9d4a20e8b6f34b48672929b2f04782f0c414d14c1eac5f3c3aa16dc76ae0",
+    "theme.js": "120c5fb505eee52532bf9a12dd29ee4cbe49338349a3e0df62dbc77ff4247e67"
+  },
+  "build": "ac2659be75499041fc31d4a1d51d101193754b07f05b39649c4e25c9f49831c2"
+}
