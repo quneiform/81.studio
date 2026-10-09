@@ -252,36 +252,7 @@
       padding: 1px 4px;
       border-radius: 2px;
     }
-    .badge-slug {
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      padding: 1px 6px;
-      border-radius: var(--button-radius);
-      background: rgba(2, 132, 199, 0.14);
-      color: var(--accent-secondary);
-      border: 1px solid var(--border-subtle);
-      letter-spacing: 0.03em;
-      font-weight: 500;
-      pointer-events: none;
-    }
-    :where([data-mode="light"]) .badge-slug {
-      background: rgba(2, 132, 199, 0.10);
-      color: var(--accent-primary);
-      border-color: rgba(2, 132, 199, 0.25);
-    }
-    .seg-btn-slug {
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      opacity: 0.75;
-      margin-left: 4px;
-      letter-spacing: 0.03em;
-      font-weight: 500;
-      color: var(--accent-secondary);
-    }
-    :where([data-mode="light"]) .seg-btn-slug {
-      color: var(--accent-primary);
-      opacity: 0.9;
-    }
+
     .badge-skene {
       background: rgba(56, 189, 248, 0.2);
       color: #38bdf8;
@@ -1180,8 +1151,7 @@
             <path d="M8 1 A 7 7 0 0 0 8 15 Z" fill="var(--accent-primary)"/>
             <path d="M8 1 A 7 7 0 0 1 8 15 Z" fill="var(--accent-secondary)"/>
           </svg>
-          <span id="theme-btn-label" style="pointer-events: none;">Redmond Town Square</span>
-          <span id="theme-btn-slug" class="badge-slug">[redmond@v2]</span>
+          <span id="theme-btn-label" style="pointer-events: none;">redmond@v2</span>
           <span id="mode-icon-indicator" style="display: inline-flex; align-items: center; flex-shrink: 0; pointer-events: none;" aria-hidden="true">
             <svg id="mode-icon-dark" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: block;">
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
@@ -1231,10 +1201,7 @@
                 <span class="plaque-label">Theme</span>
                 <span id="plaque-theme-val" class="plaque-value" style="color: var(--accent-primary);">Redmond Town Square</span>
               </div>
-              <div>
-                <span class="plaque-label">Slug</span>
-                <span id="plaque-slug-val" class="plaque-value" style="color: var(--accent-secondary); font-family: var(--font-mono);">[redmond@v2]</span>
-              </div>
+
               <div>
                 <span class="plaque-label">Lighting Filter</span>
                 <span id="plaque-lighting-val" class="plaque-value">Dark Filter</span>
@@ -1265,18 +1232,18 @@
             <div class="theme-group">
               <div class="theme-group-label">Pacific Northwest Places</div>
               <div id="places-theme-group" class="theme-segmented-group">
-                <button type="button" class="theme-seg-btn" data-preset="puget-twilight">Puget Twilight <span class="seg-btn-slug">[puget]</span></button>
-                <button type="button" class="theme-seg-btn" data-preset="lopez-madrone">Lopez Madrone <span class="seg-btn-slug">[lopez]</span></button>
-                <button type="button" class="theme-seg-btn" data-preset="olympic-larch">Olympic Larch <span class="seg-btn-slug">[olympic]</span></button>
-                <button type="button" class="theme-seg-btn" data-preset="fort-worden-mist">Fort Worden Mist <span class="seg-btn-slug">[worden]</span></button>
+                <button type="button" class="theme-seg-btn" data-preset="puget-twilight">Puget Twilight</button>
+                <button type="button" class="theme-seg-btn" data-preset="lopez-madrone">Lopez Madrone</button>
+                <button type="button" class="theme-seg-btn" data-preset="olympic-larch">Olympic Larch</button>
+                <button type="button" class="theme-seg-btn" data-preset="fort-worden-mist">Fort Worden Mist</button>
               </div>
             </div>
 
             <div class="theme-group">
               <div class="theme-group-label">Computing Eras</div>
               <div id="eras-theme-group" class="theme-segmented-group">
-                <button type="button" class="theme-seg-btn" data-preset="redmond-town-square">Redmond Town Square <span class="seg-btn-slug">[redmond]</span></button>
-                <button type="button" class="theme-seg-btn" data-preset="sgi-indigo">SGI Indigo <span class="seg-btn-slug">[sgi]</span></button>
+                <button type="button" class="theme-seg-btn" data-preset="redmond-town-square">Redmond Town Square</button>
+                <button type="button" class="theme-seg-btn" data-preset="sgi-indigo">SGI Indigo</button>
               </div>
             </div>
           </div>
@@ -2081,8 +2048,7 @@
         updateCaseStudyButtonState(csScrambleActive, state.textScramble === 'active');
       }
 
-      // Update Controls
-      themeBtnLabel.textContent = theme.name;
+
       const modeDarkIcon = document.getElementById('mode-icon-dark');
       const modeLightIcon = document.getElementById('mode-icon-light');
       if (modeDarkIcon && modeLightIcon) {
@@ -2236,11 +2202,8 @@
       const baseSlug = theme.slug || (window.CANONICAL_SLUGS && window.CANONICAL_SLUGS[state.presetId]) || 'redmond';
       const quneicSlug = `${baseSlug}@${state.qualifierId}`;
 
-      const themeBtnSlug = document.getElementById('theme-btn-slug');
-      if (themeBtnSlug) themeBtnSlug.textContent = `[${quneicSlug}]`;
-
-      const plaqueSlugVal = document.getElementById('plaque-slug-val');
-      if (plaqueSlugVal) plaqueSlugVal.textContent = `[${quneicSlug}]`;
+      if (themeBtnLabel) themeBtnLabel.textContent = quneicSlug;
+      if (themeBtn) themeBtn.title = `${theme.name} (${quneicSlug})`;
 
       // Update Tokens Inspection
       const tokenSlug = document.getElementById('token-slug');
