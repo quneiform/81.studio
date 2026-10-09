@@ -13,9 +13,10 @@
     :root {
       --canvas-bg: #0e1726;
       --surface-bg: #152238;
+      --surface-hover: #1d2d48;
       --surface-hover-bg: #1d2d48;
       --card-bg: rgba(21, 34, 56, 0.78);
-      --header-bg: rgba(14, 23, 38, 0.65);
+      --header-bg: rgba(14, 23, 38, 0.82);
       --footer-bg: rgba(14, 23, 38, 0.4);
       --chassis-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
       --text-primary: #f8fafc;
@@ -148,7 +149,16 @@
       background: var(--header-bg);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      transition: background 0.3s ease, border-color 0.3s ease;
+      transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    :where([data-mode="light"]) header {
+      background: var(--header-bg, rgba(255, 255, 255, 0.92));
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 1px 4px rgba(15, 23, 42, 0.05);
+    }
+    :where([data-mode="dark"]) header {
+      background: var(--header-bg, rgba(14, 23, 38, 0.82));
+      border-bottom: 1px solid var(--border-subtle);
     }
 
     .brand-group {
@@ -215,6 +225,24 @@
       color: var(--text-primary);
       border-color: var(--accent-primary);
     }
+    :where([data-mode="light"]) .nav-pill {
+      background: #ffffff;
+      border-color: rgba(0, 0, 0, 0.12);
+      color: var(--text-secondary);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    }
+    :where([data-mode="light"]) .nav-pill:hover {
+      background: var(--surface-hover-bg, #f1f5f9);
+      color: var(--text-primary);
+      border-color: var(--accent-primary);
+    }
+    :where([data-mode="light"]) .nav-pill.active {
+      background: var(--surface-bg, #f8fafc);
+      color: var(--text-primary);
+      border-color: var(--accent-primary);
+      box-shadow: 0 0 0 1px var(--accent-primary), 0 1px 3px rgba(15, 23, 42, 0.08);
+      font-weight: 600;
+    }
     .badge-sys {
       background: #f59e0b;
       color: #0f172a;
@@ -222,6 +250,36 @@
       font-weight: 800;
       padding: 1px 4px;
       border-radius: 2px;
+    }
+    .badge-slug {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      padding: 1px 6px;
+      border-radius: var(--button-radius);
+      background: rgba(2, 132, 199, 0.14);
+      color: var(--accent-secondary);
+      border: 1px solid var(--border-subtle);
+      letter-spacing: 0.03em;
+      font-weight: 500;
+      pointer-events: none;
+    }
+    :where([data-mode="light"]) .badge-slug {
+      background: rgba(2, 132, 199, 0.10);
+      color: var(--accent-primary);
+      border-color: rgba(2, 132, 199, 0.25);
+    }
+    .seg-btn-slug {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      opacity: 0.75;
+      margin-left: 4px;
+      letter-spacing: 0.03em;
+      font-weight: 500;
+      color: var(--accent-secondary);
+    }
+    :where([data-mode="light"]) .seg-btn-slug {
+      color: var(--accent-primary);
+      opacity: 0.9;
     }
     .badge-skene {
       background: rgba(56, 189, 248, 0.2);
@@ -1122,6 +1180,7 @@
             <path d="M8 1 A 7 7 0 0 1 8 15 Z" fill="var(--accent-secondary)"/>
           </svg>
           <span id="theme-btn-label" style="pointer-events: none;">Redmond Town Square</span>
+          <span id="theme-btn-slug" class="badge-slug">[redmond@v2]</span>
           <span id="mode-icon-indicator" style="display: inline-flex; align-items: center; flex-shrink: 0; pointer-events: none;" aria-hidden="true">
             <svg id="mode-icon-dark" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: block;">
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
@@ -1172,6 +1231,10 @@
                 <span id="plaque-theme-val" class="plaque-value" style="color: var(--accent-primary);">Redmond Town Square</span>
               </div>
               <div>
+                <span class="plaque-label">Slug</span>
+                <span id="plaque-slug-val" class="plaque-value" style="color: var(--accent-secondary); font-family: var(--font-mono);">[redmond@v2]</span>
+              </div>
+              <div>
                 <span class="plaque-label">Lighting Filter</span>
                 <span id="plaque-lighting-val" class="plaque-value">Dark Filter</span>
               </div>
@@ -1201,18 +1264,18 @@
             <div class="theme-group">
               <div class="theme-group-label">Pacific Northwest Places</div>
               <div id="places-theme-group" class="theme-segmented-group">
-                <button type="button" class="theme-seg-btn" data-preset="puget-twilight">Puget Twilight</button>
-                <button type="button" class="theme-seg-btn" data-preset="lopez-madrone">Lopez Madrone</button>
-                <button type="button" class="theme-seg-btn" data-preset="olympic-larch">Olympic Larch</button>
-                <button type="button" class="theme-seg-btn" data-preset="fort-worden-mist">Fort Worden Mist</button>
+                <button type="button" class="theme-seg-btn" data-preset="puget-twilight">Puget Twilight <span class="seg-btn-slug">[puget]</span></button>
+                <button type="button" class="theme-seg-btn" data-preset="lopez-madrone">Lopez Madrone <span class="seg-btn-slug">[lopez]</span></button>
+                <button type="button" class="theme-seg-btn" data-preset="olympic-larch">Olympic Larch <span class="seg-btn-slug">[olympic]</span></button>
+                <button type="button" class="theme-seg-btn" data-preset="fort-worden-mist">Fort Worden Mist <span class="seg-btn-slug">[worden]</span></button>
               </div>
             </div>
 
             <div class="theme-group">
               <div class="theme-group-label">Computing Eras</div>
               <div id="eras-theme-group" class="theme-segmented-group">
-                <button type="button" class="theme-seg-btn" data-preset="redmond-town-square">Redmond Town Square</button>
-                <button type="button" class="theme-seg-btn" data-preset="sgi-indigo">SGI Indigo</button>
+                <button type="button" class="theme-seg-btn" data-preset="redmond-town-square">Redmond Town Square <span class="seg-btn-slug">[redmond]</span></button>
+                <button type="button" class="theme-seg-btn" data-preset="sgi-indigo">SGI Indigo <span class="seg-btn-slug">[sgi]</span></button>
               </div>
             </div>
           </div>
@@ -1383,7 +1446,7 @@
                 ✉ contact@81.studio <span style="opacity: 0.6;">📋</span>
               </button>
               <button id="open-note-btn" class="btn btn-ghost">
-                <kbd style="font-family: inherit; font-size: 0.7rem; border: 1px solid var(--border-subtle); padding: 1px 4px; border-radius: 2px;">⌘K</kbd> Direct note
+                <kbd style="font-family: inherit; font-size: 0.7rem; border: 1px solid var(--border-subtle); padding: 1px 4px; border-radius: 2px;">⌘K</kbd> Send a note
               </button>
             </div>
           </article>
@@ -1546,6 +1609,8 @@
           <div class="bench-panel">
             <h4 style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-secondary); margin: 0 0 12px;">ACTIVE THEME TOKENS</h4>
             <table class="token-table">
+              <tr><td>slug</td><td id="token-slug" style="font-weight: 600; color: var(--accent-secondary);">redmond@v2</td></tr>
+              <tr><td>thing_uri</td><td id="token-thing-uri" style="font-size: 0.72rem;">qn://81.studio/theme/redmond</td></tr>
               <tr><td>preset</td><td id="token-preset">redmond-town-square</td></tr>
               <tr><td>qualifier</td><td id="token-qualifier">v1</td></tr>
               <tr><td>button_treatment</td><td id="token-button">double-wire</td></tr>
@@ -1607,7 +1672,7 @@
   <!-- Clean De-duplicated Footer -->
   <footer>
     <div class="footer-left">
-      <span>© Studio81 · Principal Systems Architecture · Seattle &amp; Remote</span>
+      <span>© Studio81 · Systems Architecture &amp; Engineering · Seattle &amp; Remote</span>
     </div>
     <div class="footer-right">
       <a href="https://qune.io" target="_blank" rel="noopener">qune.io ↗</a>
@@ -1621,12 +1686,12 @@
   <!-- Direct Note Modal -->
   <div id="note-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <div class="modal-box">
-      <h3 id="modal-title" style="margin: 0 0 12px; font-family: var(--font-mono); font-size: 1rem; color: var(--text-primary);">Direct Note // contact@81.studio</h3>
+      <h3 id="modal-title" style="margin: 0 0 12px; font-family: var(--font-mono); font-size: 1rem; color: var(--text-primary);">Send a note // contact@81.studio</h3>
       <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 16px;">
-        Draft a direct inquiry to Studio81 principals. No remote telemetry is sent before your explicit action.
+        Get in touch directly with our team. Opens your email client to send a message.
       </p>
-      <input type="text" id="note-subject" placeholder="System or Challenge Overview" style="width: 100%; background: var(--canvas-bg); border: 1px solid var(--border-subtle); color: var(--text-primary); padding: 8px 12px; border-radius: var(--button-radius); font-family: var(--font-mono); font-size: 0.82rem; margin-bottom: 12px;">
-      <textarea id="note-body" rows="4" placeholder="Brief outline of architecture, constraints, or timeline..." style="width: 100%; background: var(--canvas-bg); border: 1px solid var(--border-subtle); color: var(--text-primary); padding: 8px 12px; border-radius: var(--button-radius); font-family: var(--font-mono); font-size: 0.82rem; margin-bottom: 20px; resize: vertical;"></textarea>
+      <input type="text" id="note-subject" placeholder="Subject or project overview" style="width: 100%; background: var(--canvas-bg); border: 1px solid var(--border-subtle); color: var(--text-primary); padding: 8px 12px; border-radius: var(--button-radius); font-family: var(--font-mono); font-size: 0.82rem; margin-bottom: 12px;">
+      <textarea id="note-body" rows="4" placeholder="Tell us about what you're building or the problems you're solving..." style="width: 100%; background: var(--canvas-bg); border: 1px solid var(--border-subtle); color: var(--text-primary); padding: 8px 12px; border-radius: var(--button-radius); font-family: var(--font-mono); font-size: 0.82rem; margin-bottom: 20px; resize: vertical;"></textarea>
       <div style="display: flex; justify-content: flex-end; gap: 10px;">
         <button id="cancel-note-btn" class="btn btn-secondary">Cancel</button>
         <button id="send-note-btn" class="btn btn-primary">Open Mail Client →</button>
@@ -1974,7 +2039,7 @@
       heroTitleSuffix.innerHTML = maybeScramble(baseCopy.headlineSuffix);
       heroSubtag.textContent = maybeScramble(baseCopy.subtag);
       chassisBadgeLeft.textContent = maybeScramble(baseCopy.badgeLeft);
-      chassisBadgeRight.textContent = maybeScramble("DIRECT ENGAGEMENT · PRINCIPAL PRACTICE");
+      chassisBadgeRight.textContent = maybeScramble("ARCHITECTURE THROUGH DELIVERY");
       chassisLede.textContent = maybeScramble(baseCopy.lede);
 
       col1Title.textContent = maybeScramble(baseCopy.col1[0]);
@@ -1984,8 +2049,8 @@
       col3Title.textContent = maybeScramble(baseCopy.col3[0]);
       col3Desc.textContent = maybeScramble(baseCopy.col3[1]);
 
-      if (chassisCtaTitle) chassisCtaTitle.textContent = maybeScramble("Facing a critical systems challenge? We can help.");
-      if (chassisCtaSub) chassisCtaSub.textContent = maybeScramble("Direct engagement with principal architects.");
+      if (chassisCtaTitle) chassisCtaTitle.textContent = maybeScramble("Working through a difficult systems problem?");
+      if (chassisCtaSub) chassisCtaSub.textContent = maybeScramble("Direct engagement with experienced systems engineers.");
 
       // Update Case Study buttons state with proper contrast in both light and dark
       const updateCaseStudyButtonState = (btn, isSelected) => {
@@ -2166,7 +2231,22 @@
         b.className = `btn btn-primary treatment-${effectiveTreatment}`;
       });
 
+      // Slugs and Quneic Identity
+      const baseSlug = theme.slug || (window.CANONICAL_SLUGS && window.CANONICAL_SLUGS[state.presetId]) || 'redmond';
+      const quneicSlug = `${baseSlug}@${state.qualifierId}`;
+
+      const themeBtnSlug = document.getElementById('theme-btn-slug');
+      if (themeBtnSlug) themeBtnSlug.textContent = `[${quneicSlug}]`;
+
+      const plaqueSlugVal = document.getElementById('plaque-slug-val');
+      if (plaqueSlugVal) plaqueSlugVal.textContent = `[${quneicSlug}]`;
+
       // Update Tokens Inspection
+      const tokenSlug = document.getElementById('token-slug');
+      if (tokenSlug) tokenSlug.textContent = quneicSlug;
+      const tokenThingUri = document.getElementById('token-thing-uri');
+      if (tokenThingUri) tokenThingUri.textContent = `qn://81.studio/theme/${baseSlug}`;
+
       tokenPreset.textContent = state.presetId;
       tokenQualifier.textContent = state.qualifierId;
       tokenButton.textContent = effectiveTreatment;
@@ -2175,6 +2255,16 @@
       tokenMode.textContent = state.isDark ? 'dark' : 'light';
       tokenLoc.textContent = state.localizationSkene;
       if (tokenScramble) tokenScramble.textContent = state.textScramble;
+
+      // Sync active slug and mode to URL
+      if (typeof history !== 'undefined' && history.replaceState) {
+        try {
+          const url = new URL(window.location.href);
+          url.searchParams.set('slug', quneicSlug);
+          url.searchParams.set('mode', state.isDark ? 'dark' : 'light');
+          history.replaceState(null, '', url.pathname + url.search);
+        } catch (e) {}
+      }
 
       // Swatches
       swatchRow.innerHTML = '';

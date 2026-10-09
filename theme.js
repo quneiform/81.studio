@@ -655,6 +655,7 @@
     root.style.setProperty("--button-hover-bg", tokens.buttonHoverBg);
     root.style.setProperty("--hero-gradient", tokens.heroGradient);
     root.style.setProperty("--caustic-gradients", tokens.causticGradients);
+    root.style.setProperty("--header-bg", state.isDark ? "rgba(14, 23, 38, 0.82)" : "rgba(255, 255, 255, 0.88)");
     if (tokens.fontDisplay) root.style.setProperty("--font-display", tokens.fontDisplay);
 
     if (tokens.activeCardRadius) {
@@ -764,7 +765,7 @@
           body: CANONICAL_COPY.col3[1],
           action: { type: "SelectCapability", capabilityId: "03" },
           actionLabel: "INSPECT INVARIANTS",
-          diagnostics: ["Direct principal architects with zero corporate intermediaries"],
+          diagnostics: ["Hands-on collaboration directly with technical founders and engineering leadership"],
           state: { selected: false }
         }
       ]
@@ -902,6 +903,7 @@
   if (typeof window !== "undefined") {
     window.THEMES = THEMES;
     window.CANONICAL_COPY = CANONICAL_COPY;
+    window.CANONICAL_SLUGS = CANONICAL_SLUGS;
     window.getCoarseSeason = getCoarseSeason;
     window.resolveThemeState = resolveThemeState;
     window.applyPalette = applyPalette;
