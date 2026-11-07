@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Studio81 — Software for complex systems. We help teams design, build, and operate reliable software—from architecture decisions to production.">
+  <meta name="description" content="Studio81 — Understandable systems. We design and build complex systems with explicit rules, scoped authority, and guarantees people can understand—from architecture through production.">
   <meta name="color-scheme" content="dark light">
   <meta name="referrer" content="no-referrer">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'">
@@ -38,14 +38,14 @@
 
   const CANONICAL_COPY = {
     eyebrow: "SYSTEMS ENGINEERING · SEATTLE & REMOTE",
-    headlineStart: "Software for complex",
+    headlineStart: "Understandable",
     headlineSuffix: "<span class=\"accent-word\">systems.</span>",
-    subtag: "Distributed systems · Storage & consensus · Production infrastructure",
+    subtag: "Distributed systems · Autonomous agents · Knowable computing",
     badgeLeft: "Studio81",
-    lede: "We help teams design, build, and operate reliable software—from architecture decisions to production.",
-    col1: ["Systems Architecture", "Design and implementation of distributed systems, consensus engines, and fault-tolerant infrastructure built for high reliability."],
-    col2: ["Reliability & Scale", "Diagnose production problems, improve resilience, and scale data pipelines."],
-    col3: ["Work Directly With Us", "Hands-on collaboration directly with technical founders and engineering leadership."]
+    lede: "We design and build complex systems with explicit rules, scoped authority, and guarantees people can understand—from architecture through production.",
+    col1: ["Systems Architecture", "Distributed systems, consensus, and infrastructure with explicit assumptions, failure boundaries, and recovery behavior."],
+    col2: ["Agents & Authority", "Autonomous agents with tightly scoped authorization surfaces for liquidity deployment, price convergence, and automatic hedging."],
+    col3: ["Work Directly With Us", "Hands-on engineering leadership, from understanding the problem to implementing and operating the system."]
   };
 
   const CAPABILITY_NOTES = {
@@ -54,8 +54,8 @@
       "Predictable recovery across network faults and restarts"
     ],
     "02": [
-      "Durable storage and clean crash recovery",
-      "High-throughput data pipelines with bounded resource use"
+      "Explicit permissions, constraints, and evidence",
+      "Scoped authority for autonomous actions"
     ],
     "03": [
       "Work directly with the engineers designing and writing the code",
@@ -697,8 +697,8 @@
       nodeId: "node:cta:action",
       role: "action",
       source: "qrate://81.studio/practice#contact",
-      title: applyTransform("Working through a difficult systems problem?"),
-      subtitle: applyTransform("Talk directly with the engineers who will do the work."),
+      title: applyTransform("What does your system need to guarantee?"),
+      subtitle: applyTransform("Work directly with the engineers who will design and build it."),
       actionText: applyTransform("GET IN TOUCH"),
       endpoint: "contact@81.studio",
       endpointProtected: true,
@@ -2178,12 +2178,12 @@
           </div>
 
           <h1 class="hero-title" id="hero-title">
-            <span id="hero-title-prefix">Software for complex</span> <span id="hero-title-suffix" class="accent-word">systems.</span>
+            <span id="hero-title-prefix">Understandable</span> <span id="hero-title-suffix" class="accent-word">systems.</span>
           </h1>
 
           <div class="hero-axis-line">
             <span class="hero-axis-subtag" id="hero-subtag">
-              Distributed systems · Storage &amp; consensus · Production infrastructure
+              Distributed systems · Autonomous agents · Knowable computing
             </span>
           </div>
 
@@ -2195,14 +2195,14 @@
             </div>
 
             <p class="chassis-lede" id="chassis-lede">
-              We help teams design, build, and operate reliable software—from architecture decisions to production.
+              We design and build complex systems with explicit rules, scoped authority, and guarantees people can understand—from architecture through production.
             </p>
 
             <div class="matrix-cols" id="matrix-cols" data-qux-container="cards"></div>
 
             <div class="chassis-cta-block">
-              <h3 class="chassis-cta-title" id="chassis-cta-title">Working through a difficult systems problem?</h3>
-              <p class="chassis-cta-sub" id="chassis-cta-sub">Talk directly with the engineers who will do the work.</p>
+              <h3 class="chassis-cta-title" id="chassis-cta-title">What does your system need to guarantee?</h3>
+              <p class="chassis-cta-sub" id="chassis-cta-sub">Work directly with the engineers who will design and build it.</p>
             </div>
 
             <div class="chassis-actions">
@@ -2235,6 +2235,23 @@
             </aside>
           </div>
 
+          <section class="substrates-section" aria-labelledby="practice-heading">
+            <div class="substrates-header">
+              <span class="substrates-eyebrow">HOW WE THINK</span>
+              <h2 id="practice-heading" class="substrates-title">More than a version number.</h2>
+            </div>
+            <div class="substrates-grid">
+              <article class="substrate-card">
+                <h3 class="substrate-name">A new era of building software.</h3>
+                <p class="substrate-desc">AI makes it practical to care more about how software is built: the rules it follows, the authority it exercises, and the evidence behind its results. Compatibility is one part of the contract. We also need to understand what the system guarantees, under which assumptions, and where those guarantees end.</p>
+              </article>
+              <article class="substrate-card">
+                <h3 class="substrate-name">Guarantees you can reason about.</h3>
+                <p class="substrate-desc">Make the scope small enough to understand and the evidence clear enough to inspect. Formal proofs and written explanations each have a place. The engineering work is connecting claims to behavior, making uncertainty visible, and keeping that relationship understandable as the system evolves.</p>
+              </article>
+            </div>
+          </section>
+
           <!-- Foundational Substrates Shelf (Quneiform & Thema blurbs) -->
           <section class="substrates-section" aria-labelledby="substrates-heading">
             <div class="substrates-header">
@@ -2250,12 +2267,12 @@
                   </div>
                   <h3 class="substrate-name">Quneiform</h3>
                   <p class="substrate-desc">
-                    A platform for building applications around recorded changes, explicit rules, and verifiable state.
+                    A computing platform for extensible, knowable, and provable applications based on knowledge frontiers: live reductive views over sourced data that may be incomplete or redacted.
                   </p>
                 </div>
                 <div class="substrate-footer">
                   <a href="https://qune.io" target="_blank" rel="noopener" class="btn btn-secondary" style="font-size: 0.75rem; padding: 6px 14px;">Visit qune.io →</a>
-                  <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);">Recorded state &amp; customizable interfaces</span>
+                  <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);">Knowledge frontiers · Explicit computation</span>
                 </div>
               </article>
 
