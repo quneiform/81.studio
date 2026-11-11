@@ -3,7 +3,7 @@
   "qrate": {
     "name": "81.studio.landing",
     "version": "0.3.0",
-    "manifest_sha256": "cceea9d7eb84f5149e2fdeff5756265c3392f0f3996ae134e0302451217aea6f"
+    "manifest_sha256": "5cfc41cd66a00bbe51e7202aa5b7f753bbfd9fca8d79796b70673829cc0902c7"
   },
   "host": "81.studio",
   "interface": "static-site/1",
@@ -15,13 +15,13 @@
     ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "CNAME": "6b64190ed11fcf38c89096e298a4019e6cec296c916016674eff0fc9ce749d29",
     "hradtoraed.wasm": "b74046d703591053ab3b3f0c244b1c1bcb771db35535d122ee4dcfa89deecca9",
-    "index.html": "6e2f1a9d2bb64aebd7be070ff26c861fe0bdb6b2c231eaa841a64de192f4a1ff"
+    "index.html": "64020668981e6fb95312e684e40a388ed7ef59f70c2b5c988c7d436bf05e3983"
   },
   "files": {
     ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "CNAME": "6b64190ed11fcf38c89096e298a4019e6cec296c916016674eff0fc9ce749d29",
     "hradtoraed.wasm": "b74046d703591053ab3b3f0c244b1c1bcb771db35535d122ee4dcfa89deecca9",
-    "index.html": "6e2f1a9d2bb64aebd7be070ff26c861fe0bdb6b2c231eaa841a64de192f4a1ff"
+    "index.html": "64020668981e6fb95312e684e40a388ed7ef59f70c2b5c988c7d436bf05e3983"
   },
-  "build": "f4cf070145f6efeb7c135a7b3f11e1a8b531ea469a94376cb97665c9f1a1633b"
+  "build": "ba2c9e59a43fbdcfdff6ad228f54875f9d31541c7b6eb10ca9c781d1b74e229b"
 }
